@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "ActiveadminDepot" %></title>
+    <%= csrf_meta_tags %>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <!-- Size should be 144 x 144 pixels -->
+    <%= favicon_link_tag 'images/apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <!-- Size should be 114 x 114 pixels -->
+    <%= favicon_link_tag 'images/apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+
+    <!-- For first- and second-generation iPad: -->
+    <!-- Size should be 72 x 72 pixels -->
+    <%= favicon_link_tag 'images/apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <!-- Size should be 57 x 57 pixels -->
+    <%= favicon_link_tag 'images/apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+
+    <!-- For all other devices -->
+    <!-- Size should be 32 x 32 pixels -->
+    <%= favicon_link_tag 'images/favicon.ico', :rel => 'shortcut icon' %>
+  </head>
+
+  <body class="metrouicss">
+
+      <div class="nav-bar">
+        <div class="nav-bar-inner padding10">
+          <span class="pull-menu"></span>
+
+          <a href="history.go(-1)">
+            <span class="element brand">
+              <span class="back-button white place-left"></span>
+              <span class="name2">Shear Edge</span>
+            </span>
+          </a>
+
+          <ul class="menu" style="padding-top: 10px;">
+            <li><%= link_to "Home", "/" %></li>
+
+            <li data-role="dropdown">
+              <a href="#">Shear Edge Information</a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Shear Edge Salon Home", "http://shearedgesalon.com/", target: "_blank" %></li>
+                <li><%= link_to "Hours & Directions", "http://www.shearedgesalon.com/hours.htm", target: "_blank" %></li>
+                <li><%= link_to "Gallery", "http://www.shearedgesalon.com/gallery.htm", target: "_blank" %></li>
+
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+
+
+        <div class="page-region-content">
+          <div class="page-region">
+
+
+          <div class="grid">
+            <div class="row">
+
+              <div id="container">
+
+
+                <div id="auth">
+                  <% if logged_in? %>
+
+                      Welcome <%= current_user.username %>
+                      <br/>
+                      <%= link_to "Services |", products_path%>
+                      <%= link_to " View Cart |", cart_path%>
+
+
+                      <%= link_to " Log out", logout_path %>
+
+
+
+
+
+                  <% else %>
+                      <%= link_to "Sign up", signup_path %> or
+                      <%= link_to "Log in", login_path %>.
+                  <% end %>
+                </div>
+               <br/>
+                <br/>
+                <br/>
+
+
+                <% flash.each do |name, msg| %>
+                    <%= content_tag :div, msg, :id => "flash_#{name}" %>
+                <% end %>
+                <%= content_tag :h2, yield(:title) if show_title? %>
+                <%= yield %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+      <div class="nav-bar">
+          <div class="nav-bar-inner" style="padding: 10px 10px 5px;">
+            <span class="element">&copy; Agile Creative Consulting 2015</span>
+          </div>
+        </div>
+
+    </div>
+
+    <!-- Javascripts
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+
+    <%= javascript_include_tag "application" %>
+     </body>
+  <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-23306458-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+  </script>
+</html>

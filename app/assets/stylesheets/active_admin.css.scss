@@ -1,0 +1,48 @@
+// SASS variable overrides must be declared before loading up Active Admin's styles.
+//
+// To view the variables that Active Admin provides, take a look at
+// `app/assets/stylesheets/active_admin/mixins/_variables.css.scss` in the
+// Active Admin source.
+//
+// For example, to change the sidebar width:
+// $sidebar-width: 242px;
+
+// Active Admin's got SASS!
+@import "active_admin/mixins";
+@import "active_admin/base";
+
+
+$skinMainFirstColor: #23282f!default;
+$skinMainSecondColor: #0066CC!default;
+$skinBorderWindowColor: #B8BABE!default;
+
+
+@import "wigu/active_admin_theme";
+
+// import bootstrap-sprockets before bootstrap if using bootstrap >= 3.2
+//@import 'bootstrap';
+//@import "bootstrap-sprockets";
+
+//@import 'bootstrap-datetimepicker';
+
+// Overriding any non-variable SASS must be done after the fact.
+// For example, to change the default status-tag color:
+//
+//   .status_tag { background: #6090DB; }
+.status_tag {
+  background: darken($secondary-color, 15%);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 3px 5px 2px 5px;
+  font-size: 0.8em;
+
+  &.ok, &.published, &.complete, &.completed, &.green { background: green; }
+  &.warn, &.warning, &.orange { background: #e29b20; }
+  &.error, &.errored, &.red, &.in_progress, &.no { background: red; }
+}
+
+#wrapper .flashes .flash_notice {
+  background-color: #FF6B19;
+  border-bottom: 2px solid #FF6B19;
+}

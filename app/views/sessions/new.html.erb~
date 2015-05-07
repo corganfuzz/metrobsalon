@@ -1,0 +1,31 @@
+<div id="wrap">
+<%= content_for(:title, "Welcome Page") %>
+<h1>Welcome</h1>
+<p>Please login in</p>
+<%= form_tag sessions_path do %>
+    <br/>
+  <p>
+    <!--<%= label_tag :login, "Username or Email Address" %>-->
+
+
+    <div class="input-control text size3">
+      <%= text_field_tag :login, params[:login], {placeholder: 'Username or Email'} %>
+      <button class="btn-clear"></button>
+    </div>
+
+  </p>
+
+    <p>
+
+      <!--<%= label_tag :password %>-->
+    <div class="input-control password size3">
+    <%= password_field_tag :password, nil, {placeholder: 'Enter your password'} %>
+     <button class="btn-reveal"></button>
+    </div>
+
+
+
+     </p>
+  <p><%= submit_tag "Log in" %></p>
+<% end %>
+</div>

@@ -1,0 +1,40 @@
+<div id="wrap">
+  <%= content_for(:title, "Sign up") %>
+  <h1>Sign Up</h1>
+You must have a telephone number to book an appointment
+  <br/><br/>
+<%= form_for @user do |f| %>
+  <%= f.error_messages %>
+  <p>
+
+    <div class="input-control text">
+       <%= f.text_field :username,  {placeholder: 'Full Name'}%>
+      <button class="btn-clear"></button>
+    </div>
+
+    </p>
+  <p>
+    <div class="input-control text">
+    <%= f.text_field :email,  {placeholder: 'Email(xxx@xxxx.com)'} %>
+  </div>
+    </p>
+    <p>
+    <div class="input-control text">
+     <%= f.text_field :phone,  {placeholder: 'Phone(xxx-xxx-xxxx)'} %>
+    </div>
+    </p>
+  <p>
+    <div class="input-control password">
+     <%= f.password_field :password, {placeholder: 'Enter password'} %>
+      <button class="btn-reveal"></button>
+    </div>
+    </p>
+  <p>
+    <div class="input-control password">
+     <%= f.password_field :password_confirmation, {placeholder: 'Confirm your password'} %>
+      <button class="btn-reveal"></button>
+  </div>
+    </p>
+  <p><%= f.submit "Sign up" %></p>
+  <% end %>
+</div>

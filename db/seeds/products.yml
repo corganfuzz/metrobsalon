@@ -1,0 +1,13 @@
+--- 
+- :price: "23.75"
+  :author: "Britteny"
+  :title: "Women - Haircut"
+  :image_file_name: haircutw.jpg
+  :featured: true
+  :available_on: 2011-02-16
+- :price: "28.20"
+  :author: "Christine"
+  :title: "Men - Haircut"
+  :image_file_name: haircutm.jpg
+  :featured: true
+  :available_on: 2011-02-16
